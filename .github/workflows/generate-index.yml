@@ -29,7 +29,7 @@ jobs:
           echo "<link rel='stylesheet' href='style.css'>" >> $OUTPUT
           echo "<title>Documentation Index</title></head><body>" >> $OUTPUT
           echo "<h1>Documentation Index</h1><ul>" >> $OUTPUT
-          find docs -type f -name "*.html" ! -name "index.html" | LC_ALL=C sort | while read file; do
+          find docs -type f -name "*.txt" ! -name "index.html" | LC_ALL=C sort | while read file; do
             relpath="${file#docs/}"
             echo "<li><a href=\"./$relpath\">$relpath</a></li>" >> $OUTPUT
           done
