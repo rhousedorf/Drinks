@@ -27,8 +27,8 @@ jobs:
           echo "<html><head><meta charset='UTF-8'>" >> $OUTPUT
           echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> $OUTPUT
           echo "<link rel='stylesheet' href='style.css'>" >> $OUTPUT
-          echo "<title>Documentation Index</title></head><body>" >> $OUTPUT
-          echo "<h1>Documentation Index</h1><ul>" >> $OUTPUT
+          echo "<title>Bob Drinks</title></head><body>" >> $OUTPUT
+          echo "<h1>Bob Drinks</h1><ul>" >> $OUTPUT
           find docs -type f -name "*.txt" ! -name "index.html" | LC_ALL=C sort | while read file; do
             relpath="${file#docs/}"
             echo "<li><a href=\"./$relpath\">$relpath</a></li>" >> $OUTPUT
