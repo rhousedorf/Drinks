@@ -83,7 +83,7 @@ jobs:
             done
           }
 
-          render_dir "docs" "" "open"
+          render_dir "docs" "" ""
 
           echo "</body></html>" >> "$OUTPUT"
 
