@@ -2,25 +2,49 @@
 <html><head><meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link rel='stylesheet' href='style.css'>
-<title>Bob Drinks</title></head><body>
-<h1>Bob Drinks</h1><ul>
-<li><a href="./Casablanca/Casablanca.txt">Casablanca/Casablanca.txt</a></li>
-<li><a href="./Casablanca/ChampagneCocktail.txt">Casablanca/ChampagneCocktail.txt</a></li>
-<li><a href="./Casablanca/French75.txt">Casablanca/French75.txt</a></li>
-<li><a href="./Falernum.txt">Falernum.txt</a></li>
-<li><a href="./LighterDrinks_WeirdStuff.txt">LighterDrinks_WeirdStuff.txt</a></li>
-<li><a href="./SpecialItems.txt">SpecialItems.txt</a></li>
-<li><a href="./Vermouth.txt">Vermouth.txt</a></li>
-<li><a href="./ZFood/KoreanFriedChicken, DoobyDoBap.txt">ZFood/KoreanFriedChicken, DoobyDoBap.txt</a></li>
-<li><a href="./bourbon.txt">bourbon.txt</a></li>
-<li><a href="./cognac.txt">cognac.txt</a></li>
-<li><a href="./gin.txt">gin.txt</a></li>
-<li><a href="./rum.txt">rum.txt</a></li>
-<li><a href="./rye.txt">rye.txt</a></li>
-<li><a href="./sake.txt">sake.txt</a></li>
-<li><a href="./scotch.txt">scotch.txt</a></li>
-<li><a href="./tequila.txt">tequila.txt</a></li>
-<li><a href="./vodka.txt">vodka.txt</a></li>
-<li><a href="./whiskey.txt">whiskey.txt</a></li>
-<li><a href="./whiskey_IRISH.txt">whiskey_IRISH.txt</a></li>
-</ul></body></html>
+<title>Bob Drinks</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+details { margin-left: 20px; }
+summary { cursor: pointer; font-weight: bold; }
+a { text-decoration: none; }
+.file { margin-left: 20px; }
+#search { margin-bottom: 15px; padding: 5px; width: 300px; }
+</style>
+<script>
+function filterFiles() {
+  var input = document.getElementById('search').value.toLowerCase();
+  var links = document.querySelectorAll('a');
+  links.forEach(function(link) {
+    var text = link.textContent.toLowerCase();
+    link.parentElement.style.display = text.includes(input) ? '' : 'none';
+  });
+}
+</script>
+</head><body>
+<h1>Bob Drinks</h1>
+<input type='text' id='search' onkeyup='filterFiles()' placeholder='Search files...'>
+<details open><summary>📁 Casablanca (3)</summary>
+<div class='file'>📄 <a href="./Casablanca/Casablanca.txt">Casablanca.txt</a></div>
+<div class='file'>📄 <a href="./Casablanca/ChampagneCocktail.txt">ChampagneCocktail.txt</a></div>
+<div class='file'>📄 <a href="./Casablanca/French75.txt">French75.txt</a></div>
+</details>
+<details open><summary>📁 ZFood (1)</summary>
+<div class='file'>📄 <a href="./ZFood/KoreanFriedChicken, DoobyDoBap.txt">KoreanFriedChicken, DoobyDoBap.txt</a></div>
+</details>
+<div class='file'>📄 <a href="./bourbon.txt">bourbon.txt</a></div>
+<div class='file'>📄 <a href="./cognac.txt">cognac.txt</a></div>
+<div class='file'>📄 <a href="./Falernum.txt">Falernum.txt</a></div>
+<div class='file'>📄 <a href="./gin.txt">gin.txt</a></div>
+<div class='file'>📄 <a href="./LighterDrinks_WeirdStuff.txt">LighterDrinks_WeirdStuff.txt</a></div>
+<div class='file'>📄 <a href="./rum.txt">rum.txt</a></div>
+<div class='file'>📄 <a href="./rye.txt">rye.txt</a></div>
+<div class='file'>📄 <a href="./sake.txt">sake.txt</a></div>
+<div class='file'>📄 <a href="./scotch.txt">scotch.txt</a></div>
+<div class='file'>📄 <a href="./SpecialItems.txt">SpecialItems.txt</a></div>
+<div class='file'>📄 <a href="./tequila.txt">tequila.txt</a></div>
+<div class='file'>📄 <a href="./Vermouth.txt">Vermouth.txt</a></div>
+<div class='file'>📄 <a href="./vodka.txt">vodka.txt</a></div>
+<div class='file'>📄 <a href="./whiskey.txt">whiskey.txt</a></div>
+<div class='file'>📄 <a href="./whiskey_IRISH.txt">whiskey_IRISH.txt</a></div>
+</body></html>
