@@ -20,27 +20,71 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate index.html
-        run: |
-          OUTPUT="docs/index.html"
-          echo "<!DOCTYPE html>" > $OUTPUT
-          echo "<html><head><meta charset='UTF-8'>" >> $OUTPUT
-          echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> $OUTPUT
-          echo "<link rel='stylesheet' href='style.css'>" >> $OUTPUT
-          echo "<title>Bob Drinks</title></head><body>" >> $OUTPUT
-          echo "<h1>Bob Drinks</h1><ul>" >> $OUTPUT
-          find docs -type f -name "*.txt" ! -name "index.html" | LC_ALL=C sort | while read file; do
-            relpath="${file#docs/}"
-            echo "<li><a href=\"./$relpath\">$relpath</a></li>" >> $OUTPUT
-          done
-          echo "</ul></body></html>" >> $OUTPUT
+  
+    - name: Generate index.html
+  run: |
+    OUTPUT="docs/index.html"
 
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add docs/index.html
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-generate docs/index.html"
-            git push
-          fi
+    echo "<!DOCTYPE html>" > $OUTPUT
+    echo "<html><head><meta charset='UTF-8'>" >> $OUTPUT
+    echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> $OUTPUT
+    echo "<link rel='stylesheet' href='style.css'>" >> $OUTPUT
+    echo "<title>Bob Drinks</title>" >> $OUTPUT
+
+    echo "<style>
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      details { margin-left: 20px; }
+      summary { cursor: pointer; font-weight: bold; }
+      a { text-decoration: none; }
+      .file { margin-left: 20px; }
+      #search { margin-bottom: 15px; padding: 5px; width: 300px; }
+    </style>" >> $OUTPUT
+
+    # Search script
+    echo "<script>
+      function filterFiles() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let links = document.querySelectorAll('a');
+        links.forEach(link => {
+          let text = link.textContent.toLowerCase();
+          link.parentElement.style.display = text.includes(input) ? '' : 'none';
+        });
+      }
+    </script>" >> $OUTPUT
+
+    echo "</head><body>" >> $OUTPUT
+    echo "<h1>Bob Drinks</h1>" >> $OUTPUT
+    echo "<input type='text' id='search' onkeyup='filterFiles()' placeholder='Search files...'>" >> $OUTPUT
+
+    # Function to count .txt files recursively
+    count_files () {
+      find "$1" -type f -name "*.txt" | wc -l
+    }
+
+    # Recursive renderer
+    render_dir () {
+      local dir="$1"
+      local rel="$2"
+      local open_flag="$3"
+
+      for subdir in $(find "$dir" -mindepth 1 -maxdepth 1 -type d | sort -f); do
+        name=$(basename "$subdir")
+        relpath="$rel$name"
+        count=$(count_files "$subdir")
+
+        echo "<details $open_flag><summary>📁 $name ($count)</summary>" >> $OUTPUT
+        render_dir "$subdir" "$relpath/" ""
+        echo "</details>" >> $OUTPUT
+      done
+
+      for file in $(find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*.txt" | sort -f); do
+        name=$(basename "$file")
+        relpath="$rel$name"
+        echo "<div class='file'>📄 <a href=\"./$relpath\">$name</a></div>" >> $OUTPUT
+      done
+    }
+
+    # Render root folders expanded
+    render_dir "docs" "" "open"
+
+    echo "</body></html>" >> $OUTPUT
