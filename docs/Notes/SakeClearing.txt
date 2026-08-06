@@ -49,15 +49,21 @@ If you pour the raw, curd-heavy mixture directly into your 10 µm or 25 µm vacu
 * Skip 10 µm: While 10 µm provides flawless clarity, it is tightly restrictive. It catches microscopic milk lipids and fats that can cause even a pre-strained liquid to slow to a frustrating crawl under a manual pump. The 25 µm filter gives you 99% of the visual clarity at triple the speed.
 
 ------------------------------
+
 User: temperature-shock
+
 AI: To speed up your filtration, you should use cold-crashing, which is the most effective temperature-shock method for milk punch.
-Instead of using heat, which can cook the milk proteins and make the curds sticky, you want to chill the mixture down to near-freezing temperatures right after it curdles. This hardens the fats and proteins, making them less likely to smear and clog your filters.
+Instead of using heat, which can cook the milk proteins and make the curds sticky, you want to chill the mixture down to near-freezing temperatures right after it curdles. 
+This hardens the fats and proteins, making them less likely to smear and clog your filters.
 ## How to Cold-Crash for Fast Filtration
 
    1. The Gentle Mix: Combine your acidic batch and whole milk at room temperature, stirring gently to form large curds.
-   2. The Deep Chill: Immediately place the entire container into your freezer for 30 to 45 minutes, or a heavy ice bath for 1 hour. You want the liquid to get as cold as possible without actually freezing solid.
-   3. The 150-Mesh Strip: Pour the ice-cold mixture immediately through your 150-mesh stainless filter. Because the curds are cold, they are firm and rigid. They will separate from the liquid instantly without smearing into the mesh.
-   4. The 25 µm Vacuum Pull: Run the cold, stripped liquid straight through your manual vacuum filter. Chilling solidifies the microscopic milk fats and lipids that usually cause "haze." The 25 µm filter will catch these hardened fats easily, keeping your vacuum flow rate incredibly fast.
+   2. The Deep Chill: Immediately place the entire container into your freezer for 30 to 45 minutes, or a heavy ice bath for 1 hour. 
+   You want the liquid to get as cold as possible without actually freezing solid.
+   3. The 150-Mesh Strip: Pour the ice-cold mixture immediately through your 150-mesh stainless filter. Because the curds are cold, they are firm and rigid. 
+   They will separate from the liquid instantly without smearing into the mesh.
+   4. The 25 µm Vacuum Pull: Run the cold, stripped liquid straight through your manual vacuum filter. Chilling solidifies the microscopic milk fats and 
+   lipids that usually cause "haze." The 25 µm filter will catch these hardened fats easily, keeping your vacuum flow rate incredibly fast.
 
 ## One Final Tip: Keep the Alcohol High
 A higher alcohol content (above 12% to 15% ABV) lowers the freezing point of your punch and acts as a solvent that keeps the liquid thin. Cold, thin liquid passes through a vacuum pump much faster than a thick, sugary, or low-alcohol mix.
