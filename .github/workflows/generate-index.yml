@@ -58,7 +58,8 @@ jobs:
           echo "<input type='text' id='search' onkeyup='filterFiles()' placeholder='Search files...'>" >> "$OUTPUT"
 
           count_files() {
-            find "$1" -type f -name "*.txt" | wc -l
+            #find "$1" -type f -name "*.txt" | wc -l
+            find "$1" -type f \( -iname "*.txt" -o -iname "*.html" \) | wc -l
           }
 
           render_dir() {
@@ -76,7 +77,8 @@ jobs:
               echo "</details>" >> "$OUTPUT"
             done
 
-            find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*.txt" | sort -f | while read -r file; do
+            #find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*.txt" | sort -f | while read -r file; do
+            find "$dir" -mindepth 1 -maxdepth 1 -type f \( -iname "*.txt" -o -iname "*.html" \) | sort -f | while read -r file; do
               name="$(basename "$file")"
               relpath="${rel}${name}"
               echo "<div class='file'>📄 <a href=\"./${relpath}\">${name}</a></div>" >> "$OUTPUT"
